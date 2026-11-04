@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#5b3a3f"/>
+    </marker>
+  </defs>
+  <rect width="900" height="650" fill="#fff8f0"/>
+  <text x="450" y="28" text-anchor="middle" font-size="20" font-weight="700" fill="#5b3a3f">Sweet Crumbs – AWS Three-Tier Architecture</text>
+
+  <!-- Internet + IGW -->
+  <rect x="360" y="42" width="180" height="36" rx="18" fill="#fde2e9" stroke="#d4607f"/>
+  <text x="450" y="65" text-anchor="middle" fill="#5b3a3f">Users / Internet</text>
+  <line x1="450" y1="78" x2="450" y2="102" stroke="#5b3a3f" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- VPC -->
+  <rect x="25" y="105" width="850" height="530" rx="12" fill="none" stroke="#8a6a6f" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="40" y="126" font-weight="700" fill="#8a6a6f">VPC 10.0.0.0/16</text>
+  <rect x="400" y="108" width="100" height="22" rx="6" fill="#fff" stroke="#8a6a6f"/>
+  <text x="450" y="124" text-anchor="middle" font-size="12" fill="#5b3a3f">Internet Gateway</text>
+  <line x1="450" y1="130" x2="450" y2="146" stroke="#5b3a3f" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ALB spanning both AZs -->
+  <rect x="100" y="148" width="700" height="30" rx="8" fill="#ec8fab" stroke="#b84767"/>
+  <text x="450" y="168" text-anchor="middle" font-weight="700" fill="#fff">Application Load Balancer (public subnets, both AZs) · HTTP 80 / HTTPS 443</text>
+
+  <!-- AZ A -->
+  <rect x="45" y="195" width="400" height="410" rx="10" fill="#fff" stroke="#f9c9d6" stroke-width="2"/>
+  <text x="430" y="212" text-anchor="end" font-weight="700" fill="#8a6a6f">Availability Zone A</text>
+  <!-- AZ B -->
+  <rect x="455" y="195" width="400" height="410" rx="10" fill="#fff" stroke="#f9c9d6" stroke-width="2"/>
+  <text x="840" y="212" text-anchor="end" font-weight="700" fill="#8a6a6f">Availability Zone B</text>
+
+  <!-- Public subnets -->
+  <rect x="55" y="222" width="380" height="95" rx="8" fill="#fdf0e3" stroke="#ec8fab"/>
+  <text x="425" y="238" text-anchor="end" font-size="12" fill="#8a6a6f">Public subnet 10.0.1.0/24</text>
+  <rect x="465" y="222" width="380" height="95" rx="8" fill="#fdf0e3" stroke="#ec8fab"/>
+  <text x="835" y="238" text-anchor="end" font-size="12" fill="#8a6a6f">Public subnet 10.0.2.0/24</text>
+
+  <rect x="75" y="250" width="150" height="55" rx="8" fill="#fde2e9" stroke="#d4607f"/>
+  <text x="150" y="272" text-anchor="middle" font-weight="700" fill="#5b3a3f">Web tier · EC2</text>
+  <text x="150" y="290" text-anchor="middle" font-size="12" fill="#5b3a3f">Nginx + static frontend</text>
+  <rect x="475" y="250" width="150" height="55" rx="8" fill="#fde2e9" stroke="#d4607f"/>
+  <text x="550" y="272" text-anchor="middle" font-weight="700" fill="#5b3a3f">Web tier · EC2</text>
+  <text x="550" y="290" text-anchor="middle" font-size="12" fill="#5b3a3f">Nginx + static frontend</text>
+
+  <rect x="255" y="250" width="150" height="55" rx="8" fill="#fff" stroke="#8a6a6f"/>
+  <text x="330" y="272" text-anchor="middle" font-weight="700" fill="#5b3a3f">NAT Gateway</text>
+  <text x="330" y="290" text-anchor="middle" font-size="12" fill="#5b3a3f">outbound only (+ Elastic IP)</text>
+  <rect x="665" y="250" width="150" height="55" rx="8" fill="#fff" stroke="#8a6a6f" stroke-dasharray="4 3"/>
+  <text x="740" y="272" text-anchor="middle" font-weight="700" fill="#8a6a6f">NAT Gateway</text>
+  <text x="740" y="290" text-anchor="middle" font-size="12" fill="#8a6a6f">optional 2nd (HA)</text>
+
+  <!-- ALB to web -->
+  <line x1="150" y1="178" x2="150" y2="248" stroke="#5b3a3f" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="550" y1="178" x2="550" y2="248" stroke="#5b3a3f" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- App subnets -->
+  <rect x="55" y="335" width="380" height="105" rx="8" fill="#fff0f4" stroke="#ec8fab"/>
+  <text x="425" y="352" text-anchor="end" font-size="12" fill="#8a6a6f">Private app subnet 10.0.11.0/24</text>
+  <rect x="465" y="335" width="380" height="105" rx="8" fill="#fff0f4" stroke="#ec8fab"/>
+  <text x="835" y="352" text-anchor="end" font-size="12" fill="#8a6a6f">Private app subnet 10.0.12.0/24</text>
+
+  <rect x="75" y="368" width="150" height="58" rx="8" fill="#fde2e9" stroke="#d4607f"/>
+  <text x="150" y="390" text-anchor="middle" font-weight="700" fill="#5b3a3f">App tier · EC2</text>
+  <text x="150" y="408" text-anchor="middle" font-size="12" fill="#5b3a3f">Node.js + Express (PM2) :3000</text>
+  <rect x="475" y="368" width="150" height="58" rx="8" fill="#fde2e9" stroke="#d4607f"/>
+  <text x="550" y="390" text-anchor="middle" font-weight="700" fill="#5b3a3f">App tier · EC2</text>
+  <text x="550" y="408" text-anchor="middle" font-size="12" fill="#5b3a3f">Node.js + Express (PM2) :3000</text>
+
+  <!-- Web -> App (/api proxy) -->
+  <line x1="150" y1="305" x2="150" y2="366" stroke="#5b3a3f" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="550" y1="305" x2="550" y2="366" stroke="#5b3a3f" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="158" y="340" font-size="11" fill="#8a6a6f">/api</text>
+  <text x="558" y="340" font-size="11" fill="#8a6a6f">/api</text>
+
+  <!-- App -> NAT (outbound for npm / OS updates) -->
+  <polyline points="225,398 330,398 330,307" fill="none" stroke="#8a6a6f" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <text x="338" y="380" font-size="11" fill="#8a6a6f">npm / OS updates</text>
+
+  <!-- DB subnets -->
+  <rect x="55" y="458" width="380" height="135" rx="8" fill="#f3e9ff" stroke="#9a7bc8"/>
+  <text x="425" y="475" text-anchor="end" font-size="12" fill="#6b3fa8">Private DB subnet 10.0.21.0/24 (no internet route)</text>
+  <rect x="465" y="458" width="380" height="135" rx="8" fill="#f3e9ff" stroke="#9a7bc8"/>
+  <text x="835" y="475" text-anchor="end" font-size="12" fill="#6b3fa8">Private DB subnet 10.0.22.0/24 (no internet route)</text>
+
+  <rect x="75" y="500" width="150" height="62" rx="8" fill="#fff" stroke="#6b3fa8" stroke-width="1.5"/>
+  <text x="150" y="524" text-anchor="middle" font-weight="700" fill="#5b3a3f">RDS MySQL</text>
+  <text x="150" y="542" text-anchor="middle" font-size="12" fill="#5b3a3f">primary · :3306</text>
+  <rect x="475" y="500" width="150" height="62" rx="8" fill="#fff" stroke="#6b3fa8" stroke-dasharray="4 3"/>
+  <text x="550" y="524" text-anchor="middle" font-weight="700" fill="#5b3a3f">RDS MySQL</text>
+  <text x="550" y="542" text-anchor="middle" font-size="12" fill="#5b3a3f">standby (Multi-AZ)</text>
+
+  <line x1="150" y1="426" x2="150" y2="498" stroke="#5b3a3f" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="550" y1="426" x2="550" y2="498" stroke="#8a6a6f" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <line x1="225" y1="531" x2="473" y2="531" stroke="#6b3fa8" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <text x="349" y="524" text-anchor="middle" font-size="11" fill="#6b3fa8">sync replication</text>
+
+  <!-- Security group legend -->
+  <text x="450" y="622" text-anchor="middle" font-size="12" fill="#5b3a3f">Security groups: ALB-SG 80/443 from internet · Web-SG 80 from ALB-SG · App-SG 3000 from Web-SG · DB-SG 3306 from App-SG only</text>
+</svg>

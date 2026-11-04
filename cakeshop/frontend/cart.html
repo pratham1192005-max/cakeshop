@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Cart – Sweet Crumbs</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header" data-active="cart"></header>
+  <main>
+    <section class="page-head"><div class="container"><h1>Shopping Cart 🛒</h1></div></section>
+    <section class="section">
+      <div class="container layout-2">
+        <div class="card">
+          <div id="cart-items"></div>
+        </div>
+        <aside class="card hidden" id="cart-summary">
+          <h3>Order Summary</h3><br>
+          <div class="summary-row"><span>Items</span><span id="sum-count">0</span></div>
+          <div class="summary-row"><span>Subtotal</span><span id="sum-subtotal">₹0.00</span></div>
+          <div class="summary-row"><span>Delivery</span><span>Free</span></div>
+          <div class="summary-row total"><span>Total</span><span id="sum-total">₹0.00</span></div>
+          <br>
+          <a href="orders.html" class="btn btn-block" style="text-align:center">Proceed to Checkout</a>
+          <br>
+          <button class="btn btn-outline btn-block" id="clear-cart" type="button">Clear cart</button>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

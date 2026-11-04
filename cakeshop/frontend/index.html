@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sweet Crumbs – Fresh Cakes Delivered</title>
+  <meta name="description" content="Order fresh, handcrafted cakes online from Sweet Crumbs Bakery.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header" data-active="home"></header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h1>Baked with love,<br><span>delivered with joy.</span></h1>
+          <p>Handcrafted cakes for birthdays, weddings and every little celebration. Baked fresh every morning with the finest ingredients.</p>
+          <div class="hero-actions">
+            <a href="cakes.html" class="btn">Order a Cake</a>
+            <a href="#about" class="btn btn-outline">Our Story</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">🎂</div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Shop by Category</h2>
+        <p class="section-sub">Find the perfect cake for your occasion</p>
+        <div class="cat-grid">
+          <a class="cat-card" href="cakes.html?category=Chocolate"><span class="emoji">🍫</span><strong>Chocolate</strong></a>
+          <a class="cat-card" href="cakes.html?category=Classic"><span class="emoji">🎂</span><strong>Classic</strong></a>
+          <a class="cat-card" href="cakes.html?category=Fruit"><span class="emoji">🍓</span><strong>Fruit</strong></a>
+          <a class="cat-card" href="cakes.html?category=Cheesecake"><span class="emoji">🧀</span><strong>Cheesecake</strong></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <h2 class="section-title">Featured Cakes</h2>
+        <p class="section-sub">Our customers' all-time favourites</p>
+        <div class="cake-grid" id="featured-grid"></div>
+        <p style="text-align:center;margin-top:30px"><a href="cakes.html" class="btn btn-outline">View all cakes</a></p>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about" id="about">
+      <div class="container about-grid">
+        <div class="about-art" aria-hidden="true">🧁</div>
+        <div>
+          <h2 class="section-title" style="text-align:left">About Sweet Crumbs</h2>
+          <p>We started in a tiny home kitchen with one oven and a lot of passion. Today, every cake is still baked in small batches using real butter, fresh cream and seasonal fruit — never premixes.</p>
+          <p style="margin-top:10px">Order online, choose your delivery address, and we will bring a fresh cake right to your celebration.</p>
+          <div class="stats">
+            <div><strong>10+</strong>Cake flavours</div>
+            <div><strong>5,000+</strong>Happy customers</div>
+            <div><strong>100%</strong>Fresh daily</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-sub">Custom order or a question? We would love to hear from you.</p>
+        <div class="contact-grid">
+          <div class="card contact-info">
+            <h3>Visit or call us</h3><br>
+            <p>📍 12 Baker Street, Thane, Maharashtra</p>
+            <p>📞 +91 90000 00000</p>
+            <p>✉️ hello@sweetcrumbs.example</p>
+            <p>🕘 Open daily 9:00 AM – 9:00 PM</p>
+          </div>
+          <form class="card" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group"><label for="c-name">Your name</label><input id="c-name" name="name" type="text" required></div>
+              <div class="form-group"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required></div>
+            </div>
+            <div class="form-group"><label for="c-msg">Message</label><textarea id="c-msg" name="message" required></textarea></div>
+            <button class="btn" type="submit">Send message</button>
+            <p class="muted" style="font-size:.82rem;margin-top:8px">This opens your email app with the message ready to send.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cakes.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

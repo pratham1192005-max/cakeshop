@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout – Sweet Crumbs</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header" data-active="cart"></header>
+  <main>
+    <section class="page-head"><div class="container"><h1>Checkout</h1></div></section>
+    <section class="section">
+      <div class="container" id="checkout-wrap">
+        <div class="layout-2">
+          <form class="card" id="order-form" novalidate>
+            <h3>Customer &amp; Delivery Details</h3><br>
+            <div id="form-msg" class="form-msg"></div>
+            <div class="form-row">
+              <div class="form-group"><label for="customer_name">Name</label><input id="customer_name" name="customer_name" type="text" readonly></div>
+              <div class="form-group"><label for="customer_email">Email</label><input id="customer_email" name="customer_email" type="email" readonly></div>
+            </div>
+            <div class="form-group"><label for="contact_phone">Contact phone</label><input id="contact_phone" name="contact_phone" type="tel" required></div>
+            <div class="form-group"><label for="delivery_address">Delivery address</label><textarea id="delivery_address" name="delivery_address" placeholder="Flat / house no., building, street, area, city, PIN code" required></textarea></div>
+            <div class="form-group"><label for="notes">Message on cake / delivery notes (optional)</label><textarea id="notes" name="notes" maxlength="500"></textarea></div>
+            <button class="btn btn-block" type="submit">Place Order</button>
+            <p class="muted" style="font-size:.85rem;margin-top:10px">Payment is collected on delivery.</p>
+          </form>
+          <aside class="card">
+            <h3>Order Summary</h3><br>
+            <div id="order-summary"><div class="spinner">Loading…</div></div>
+            <br><a href="cart.html">← Edit cart</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="js/main.js"></script>
+  <script src="js/orders.js"></script>
+</body>
+</html>

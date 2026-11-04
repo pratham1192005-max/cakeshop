@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin – Sweet Crumbs</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header" data-active="admin"></header>
+  <main>
+    <section class="page-head"><div class="container"><h1>Admin Dashboard</h1></div></section>
+    <section class="section">
+      <div class="container hidden" id="admin-root">
+        <div class="stat-grid" id="stats"></div>
+
+        <div class="tabs">
+          <button class="btn btn-sm" data-tab="cakes" type="button">Cakes</button>
+          <button class="btn btn-sm btn-outline" data-tab="orders" type="button">Orders</button>
+          <button class="btn btn-sm btn-outline" data-tab="users" type="button">Users</button>
+        </div>
+
+        <!-- Cakes -->
+        <div class="tab-panel active" id="tab-cakes">
+          <form class="card" id="cake-form" novalidate style="margin-bottom:24px">
+            <h3 id="cake-form-title">Add a new cake</h3><br>
+            <input type="hidden" name="cake_id">
+            <div class="admin-form-grid">
+              <div class="form-group"><label for="name">Name</label><input id="name" name="name" type="text" maxlength="120"></div>
+              <div class="form-group"><label for="category">Category</label><input id="category" name="category" type="text" list="cats" value="Classic" maxlength="50"><datalist id="cats"><option>Classic</option><option>Chocolate</option><option>Fruit</option><option>Cheesecake</option></datalist></div>
+              <div class="form-group"><label for="price">Price (₹)</label><input id="price" name="price" type="number" min="0" step="0.01"></div>
+              <div class="form-group"><label for="image_url">Image URL</label><input id="image_url" name="image_url" type="text" placeholder="https://…" maxlength="500"></div>
+              <div class="form-group full"><label for="description">Description</label><textarea id="description" name="description" maxlength="2000"></textarea></div>
+              <div class="form-group"><label class="check"><input type="checkbox" name="is_featured"> Featured on home page</label></div>
+              <div class="form-group"><label class="check"><input type="checkbox" name="is_available" checked> Visible in shop</label></div>
+            </div>
+            <div class="actions">
+              <button class="btn" id="cake-submit" type="submit">Add Cake</button>
+              <button class="btn btn-outline hidden" id="cake-cancel" type="button">Cancel edit</button>
+            </div>
+          </form>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>ID</th><th>Cake</th><th>Price</th><th>Featured</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody id="cakes-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Orders -->
+        <div class="tab-panel" id="tab-orders">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Order</th><th>Customer</th><th>Items &amp; address</th><th>Total</th><th>Status</th></tr></thead>
+              <tbody id="orders-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Users -->
+        <div class="tab-panel" id="tab-users">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Role</th><th>Joined</th></tr></thead>
+              <tbody id="users-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
